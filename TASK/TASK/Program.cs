@@ -12,10 +12,13 @@ public  class Person
         if (name == null || name == "" || name.Length == 32)
         {
             throw new Exception("Invalid Name");
+            
+            return;
         }
         if (age <= 0 || age >= 128)
         {
             throw new Exception("Invalid Age");
+            return;
         }
         Name = name;
         Age = age;
@@ -36,10 +39,12 @@ public class Student : Person
         if (year < 1 || year > 5)
         {
             throw new Exception("Invalid year");
+            return;
         }
         if (gpa < 0 || gpa > 4)
         {
             throw new Exception("Invalid Gpa");
+            return;
         }
         Year = year;
         GPA = gpa;
@@ -59,11 +64,13 @@ public class Staff : Person
     {
         if (salary < 0 || salary > 12000)
         { throw new Exception("Invalid salary");
+        return;
         }
         var d = DateTime.Today;
         var birthYear = d.Year - Age;
         if ((joinyear-birthYear)<21)
         { throw new Exception("Invalid Join Year");
+        return;
         }
         Salary = salary;
         joinYear = joinyear;
@@ -192,7 +199,7 @@ public class program
                 default:
                     
                     return;
-            }
+            } 
         }
     }
 }
